@@ -1,0 +1,36 @@
+﻿@model UserManager.Models.User
+
+<h1 class="sub-title">Edit User</h1>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            @Html.HiddenFor(model => model.Email)
+            <div class="form-group">
+                <label asp-for="FirstName" class="control-label"></label>
+                <input asp-for="FirstName" class="form-control" />
+                <span asp-validation-for="FirstName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="LastName" class="control-label"></label>
+                <input asp-for="LastName" class="form-control" />
+                <span asp-validation-for="LastName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CreatedDate" class="control-label"></label>
+                <div class="col-md-10">
+                    @Html.DisplayFor(model => model.CreatedDate)
+                </div>
+            </div>
+
+            <div class="form-row mt-4">
+                <div class="col-md-4">
+                    <input type="submit" value="Save" class="btn btn-default btn-block" />
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+

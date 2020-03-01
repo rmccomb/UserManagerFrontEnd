@@ -1,0 +1,14 @@
+﻿@model ErrorViewModel
+@{
+    ViewData["Title"] = "Error";
+    var exception = (Exception)ViewData["exception"];
+    string message = exception != null ? exception.Message : "";
+}
+
+<h1 class="text-danger">Error.</h1>
+<h2 class="text-danger">An error occurred while processing your request.</h2>
+
+<h3>Development Mode</h3>
+<p>
+    @message
+</p>

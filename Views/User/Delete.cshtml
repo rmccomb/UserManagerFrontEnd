@@ -1,0 +1,47 @@
+﻿@model UserManager.Models.User
+
+<h1 class="sub-title">Delete a User</h1>
+<div class="alert alert-warning" style="display: flex;">
+    <div style="font-size: 1.4em;padding-right: 20px;"><i class="fas fa-exclamation-circle"></i></div>
+    <div style="padding-top:5px;">Are you sure you want to delete this?</div>
+</div>
+<hr />
+<div class="form-horizontal">
+    <div class="form-group">
+        <label class="col-md-10 control-label">
+            @Html.DisplayNameFor(model => model.FirstName)
+        </label>
+        <div class="col-md-10">
+            @Html.DisplayFor(model => model.FirstName)
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-md-10 control-label">
+            @Html.DisplayNameFor(model => model.LastName)
+        </label>
+        <div class="col-md-10">
+            @Html.DisplayFor(model => model.LastName)
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-md-10 control-label">
+            @Html.DisplayNameFor(model => model.Email)
+        </label>
+        <div class="col-md-10">
+            @Html.DisplayFor(model => model.Email)
+        </div>
+    </div>
+</div>
+
+<form asp-action="Delete">
+    @Html.HiddenFor(m => m.Email)
+    <div class="form-actions no-color form-row form-row-buttons">
+        <div class="col-md-2">
+            <input type="submit" value="Delete" class="btn btn-outline-danger btn-block" style="font-weight: 500" />
+        </div>
+        <div class="col-md-2">
+            <a href="@Url.Action("Index")" class="btn btn-light btn-block">Cancel</a>
+        </div>
+    </div>
+
+</form>
