@@ -15,7 +15,7 @@ using User = UserManager.Models.User;
 
 namespace UserManager.Services
 {
-    public interface IUserService //: ICosmosDbService<User>
+    public interface IUserService //: ICosmosDbService<User> not used
     {
         Task<string> ValidateUser(UserLogin login);
         Task<bool> ValidateToken(string token);
@@ -39,27 +39,10 @@ namespace UserManager.Services
             string connectionString = configSection.GetSection("PrimaryConnectionString").Value;
             if (String.IsNullOrEmpty(connectionString))
                 connectionString = "http://localhost:3000";
-            //string databaseName = configSection.GetSection("DatabaseName").Value;
-            //string containerName = configSection.GetSection("ContainerName").Value;
-            //string partitionKey = configSection.GetSection("PartitionKey").Value;
-
-            //var clientBuilder = new CosmosClientBuilder(connectionString);
-            //CosmosClient client = clientBuilder.WithConnectionModeDirect().Build();
-            //DatabaseResponse database = await client.CreateDatabaseIfNotExistsAsync(databaseName);
-            //await database.Database.CreateContainerIfNotExistsAsync(containerName, partitionKey);
 
             var service = new UserService(connectionString);
             return service;
         }
-
-        //public UserService(
-        //    CosmosClient dbClient,
-        //    string databaseName,
-        //    string containerName)
-        //    : base(dbClient, databaseName, containerName)
-        //{
-        //    Query = $"SELECT * FROM c WHERE c.type = '{new User().type}' AND c.isDeleted = false";
-        //}
 
         private string _connectionUri;
 
@@ -67,11 +50,6 @@ namespace UserManager.Services
         {
             _connectionUri = connectionString;
         }
-
-        //public IQueryable<User> GetJobIterator() => _container
-        //    .GetItemLinqQueryable<User>()
-        //    .Where(a => a.isDeleted == false && a.CreatedDate != null && a.type == "user");
-
 
         private HttpClient GetHttpClient(string token)
         {
