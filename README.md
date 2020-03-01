@@ -1,5 +1,5 @@
 # UserManagerFrontEnd
-A front end for the **go_userapi** which manages users, i.e. basic CRUD to a REST backend using a JSON web token (JWT) for security. 
+A front end for the [go_userapi](../../../go_userapi) which manages users, i.e. basic CRUD to a REST backend using a JSON web token (JWT) for security. 
 
 A user has the following properties:
 
