@@ -37,6 +37,8 @@ namespace UserManager.Services
             // Connect to configured database and create container if required
 
             string connectionString = configSection.GetSection("PrimaryConnectionString").Value;
+            if (String.IsNullOrEmpty(connectionString))
+                connectionString = "http://localhost:3000";
             //string databaseName = configSection.GetSection("DatabaseName").Value;
             //string containerName = configSection.GetSection("ContainerName").Value;
             //string partitionKey = configSection.GetSection("PartitionKey").Value;
